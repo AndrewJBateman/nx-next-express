@@ -1,94 +1,95 @@
+# :zap: Nx Next Express
 
+* Nx monorepo with Express to display API data using Next.js
+* Code from the great [Jack Herrington](https://www.youtube.com/channel/UC6vRUjYqDuoUsYsku86Lrsw) with my modifications/additions
+* **Note:** to open web links in a new window use: _ctrl+click on link_
 
-# NxNextExpress
+![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/nx-next-express?style=plastic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/nx-next-express?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/nx-next-express?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/AndrewJBateman/nx-next-express?style=plastic)
 
-This project was generated using [Nx](https://nx.dev).
+## :page_facing_up: Table of contents
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+* [:zap: Nx Next Express](#zap-nx-next-express)
+  * [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
+  * [:books: General info](#books-general-info)
+  * [:camera: Screenshots](#camera-screenshots)
+  * [:signal_strength: Technologies](#signal_strength-technologies)
+  * [:floppy_disk: Setup](#floppy_disk-setup)
+  * [:computer: Code Examples](#computer-code-examples)
+  * [:cool: Features](#cool-features)
+  * [:clipboard: Status & To-do list](#clipboard-status--to-do-list)
+  * [:clap: Inspiration](#clap-inspiration)
+  * [:file_folder: License](#file_folder-license)
+  * [:envelope: Contact](#envelope-contact)
 
-🔎 **Powerful, Extensible Dev Tools**
+## :books: General info
 
-## Adding capabilities to your workspace
+* **Note:** to be able to generate the next app, @nrwl/next and @nrwl/workspace must have the same version
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+## :camera: Screenshots
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+![Frontend screenshot](./imgs/data.png)
 
-Below are our core plugins:
+## :signal_strength: Technologies
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+* [Nx v12](https://nx.dev) build framework used to create project workspace
+* [Express v4](https://expressjs.com/) framework
+* [Next.js v10](https://nextjs.org/) React framework for production
+* [@nrwl/next v12](https://www.npmjs.com/package/@nrwl/next) - v12.3.3 used - **not** latest v12.8.0
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+## :floppy_disk: Setup
 
-## Generate an application
+* `npm i` to install dependencies
+* `npm start api` for a frontend dev server on `http://localhost:4200/`
+* `npm start next-data` to start app on server `localhost:4200`
+* `nx run next-data-e2e:e2e` to run e2e testing on server `localhost:4200`
+* `npx nx e2e next-data-e2e --watch` to launch Cypress in "watch mode"
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+## :wrench: Testing
 
-> You can use any of the plugins above to generate applications as well.
+* `next-data-e2e` Cypress testing added and all tests pass
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+## :computer: Code Examples
 
-## Generate a library
+* `index.tsx` template markup to display API data using map method and list
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+```tsx
+return (
+    <div className={styles.page}>
+      <input value={search} onChange={onSetSearch} />
+      <ul>
+        {pokemon.map(({ id, name: { french }, type, base: { defense } }) => (
+          <li key={id}>
+            {french}. Type: {type}. Defence Score: {defense}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+```
 
-> You can also use any of the plugins above to generate libraries as well.
+## :cool: Features
 
-Libraries are shareable across libraries and applications. They can be imported from `@nx-next-express/mylib`.
+* Monorepo shared libraries etc. makes for tidier code
+* Cypress stores test screenshot in `dist\cypress\apps\next-data-e2e\screenshots\app.spec.ts\next-data`
 
-## Development server
+## :clipboard: Status, To-Do List
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+* Status: Working. API data displayed with no added styling
+* To-Do: add Tailwind styling, change datafile
 
-## Code scaffolding
+## :clap: Inspiration/General Tools
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+* [Jack Herrington: Typescript NX Monorepo with NextJS and Express](https://www.youtube.com/watch?v=j38ufd8Q86w&t=119s)
+* [Nx documentation](https://nx.dev/angular)
+* [Github solution: Next plugin is importing a function from a wrong path #4731](https://github.com/nrwl/nx/issues/4731)
 
-## Build
+## :file_folder: License
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* N/A
 
-## Running unit tests
+## :envelope: Contact
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
