@@ -29,7 +29,7 @@ export function Index({
   );
 
   return (
-    <div className={styles.page}>
+    <div className="bg-blue-50">
       <input value={search} onChange={onSetSearch} />
       <ul>
         {pokemon.map(({ id, name: { french }, type, base: { defense } }) => (
