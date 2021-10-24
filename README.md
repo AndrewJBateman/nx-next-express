@@ -38,6 +38,7 @@
 * [Express v4](https://expressjs.com/) framework
 * [Next.js v10](https://nextjs.org/) React framework for production
 * [@nrwl/next v12](https://www.npmjs.com/package/@nrwl/next) - v12.3.3 used - **not** latest v12.8.0
+* [Tailwind CSS v2](https://tailwindcss.com/) styles
 
 ## :floppy_disk: Setup
 
@@ -77,12 +78,13 @@ return (
 
 ## :clipboard: Status, To-Do List
 
-* Status: Working. API data displayed with no added styling
-* To-Do: add Tailwind styling, change datafile
+* Status: Working. Tailwind CSS added.
+* To-Do: test Tailwind CSS purge for build, change datafile,
 
 ## :clap: Inspiration/General Tools
 
-* [Jack Herrington: Typescript NX Monorepo with NextJS and Express](https://www.youtube.com/watch?v=j38ufd8Q86w&t=119s)
+* [Dreevo: Angular Production - Build, Test & Deploy a Full Stack Application using Nx - Part I](https://www.youtube.com/watch?v=j38ufd8Q86w&t=119s)
+* [Juri.dev: Setup Next.js to use Tailwind with Nx](https://juristr.com/blog/2021/06/setup-tailwind-nextjs-and-nx/)
 * [Nx documentation](https://nx.dev/angular)
 * [Github solution: Next plugin is importing a function from a wrong path #4731](https://github.com/nrwl/nx/issues/4731)
 
